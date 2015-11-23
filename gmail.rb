@@ -6,7 +6,7 @@ require 'yaml'
 ACCOUNT = YAML.load_file("account.yml") unless defined? ACCOUNT
 
 #Conecta con Gmail
-def conecta_gmail (email, pass)
+def conecta(email, pass)
 	g = Gmail.connect(email, pass)
 	if g.logged_in? ==  true
 		puts "Connected!".green
@@ -18,12 +18,14 @@ end
 
 def info_credencial()
 	puts "Usuario: #{ACCOUNT['email']}"
-	puts "Clave:  #{ACCOUNT['password']}"
-	conecta_gmail(ACCOUNT['email'], ACCOUNT['password'])
+        password_hided = "*" * ACCOUNT['password'].length
+	puts "Password: #{password_hided}"
+	puts "============="
+	conecta(ACCOUNT['email'], ACCOUNT['password'])
 end
 
 info_credencial()
-puts "Saliendo...".yellow
+puts "Exiting...".yellow
 
 
 
