@@ -1,15 +1,29 @@
 require 'gmail'
+require 'colorize' 
+require 'yaml'
 
-email, pass = ARGV #Argumentos recibidos de main.rb
+
+CREDENCIAL = YAML.load_file("credencial.yml") unless defined? CREDENCIAL
 
 #Conecta con Gmail
-g = Gmail.connect(email, pass)
-	if g.logged_in? == 'True'
-		puts "Estas conectado."
+def conecta_gmail (email, pass)
+	g = Gmail.connect(email, pass)
+	if g.logged_in? ==  true
+		puts "Conectado!".green
 	else
-		puts "No estas conectado"
+		puts "No conectado!".red
 	end
-
-
 end
+
+
+def info_credencial()
+	puts "Usuario: #{CREDENCIAL['correo']}"
+	puts "Clave:  #{CREDENCIAL['clave']}"
+	conecta_gmail(CREDENCIAL['correo'], CREDENCIAL['clave'])
+end
+
+info_credencial()
+puts "Saliendo...".yellow
+
+
 
