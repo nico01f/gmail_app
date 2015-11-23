@@ -1,7 +1,7 @@
-#Write email information like this:
+# Write email information like this:
 # user@gmail.com
 # Doesn't matter if you write on uppercase
 # Please, leave a space between both variable.
 
-email: nico01f@gmail.com
-password: nifo.simon
+email: 
+password: 
