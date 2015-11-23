@@ -3,23 +3,23 @@ require 'colorize'
 require 'yaml'
 
 
-CREDENCIAL = YAML.load_file("credencial.yml") unless defined? CREDENCIAL
+ACCOUNT = YAML.load_file("account.yml") unless defined? ACCOUNT
 
 #Conecta con Gmail
 def conecta_gmail (email, pass)
 	g = Gmail.connect(email, pass)
 	if g.logged_in? ==  true
-		puts "Conectado!".green
+		puts "Connected!".green
 	else
-		puts "No conectado!".red
+		puts "Doh! Not connected".red
 	end
 end
 
 
 def info_credencial()
-	puts "Usuario: #{CREDENCIAL['correo']}"
-	puts "Clave:  #{CREDENCIAL['clave']}"
-	conecta_gmail(CREDENCIAL['correo'], CREDENCIAL['clave'])
+	puts "Usuario: #{ACCOUNT['email']}"
+	puts "Clave:  #{ACCOUNT['password']}"
+	conecta_gmail(ACCOUNT['email'], ACCOUNT['password'])
 end
 
 info_credencial()
