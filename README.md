@@ -12,9 +12,10 @@ Create account file, include credetentials to gmail account:
 
 `touch account.yml`
 
-`account: email@gmail.com
+```
+account: email@gmail.com
 password: secret_password
-`
+```
 **Please follow YAML format**
 
 #Troubleshoot
