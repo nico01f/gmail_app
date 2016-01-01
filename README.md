@@ -3,11 +3,19 @@
 1. Lista correos no leidos: ok
 2. Listar correos no leidos de hace 1 hora
 3. CLI : slop?, thor?
-4.
-5.
-6.
-7.
 
+
+
+
+#Account file
+Create account file, include credetentials to gmail account:
+
+`touch account.yml`
+
+`account: email@gmail.com
+password: secret_password
+`
+**Please follow YAML format**
 
 #Troubleshoot
 
