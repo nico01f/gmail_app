@@ -1,6 +1,7 @@
 require 'gmail'
 require 'colorize'
 require 'yaml'
+require 'date'
 
 ACCOUNT = YAML.load_file('account.yml') unless defined? ACCOUNT
 
@@ -19,14 +20,29 @@ def connected
   end
 end
 
+
+=begin
+def last_email
+  year = DateTime.now.strftime("%Y").to_i
+  month = DateTime.now.strftime("%m").to_i
+  day = DateTime.now.strftime("%d").to_i
+
+  time_ago = now.strftime("%Y-%m-%d")
+  return G.inbox.count(:before => Date.parse("#{time_ago}"))
+end
+=end
+
 def info_credencial
   puts "Usuario: #{ACCOUNT['email']}"
   password_hided = '*' * ACCOUNT['password'].length
   puts "Password: #{password_hided}"
   puts '==============='
-  connected
-  unread
+
 end
 
-info_credencial
+
+info_credencial()
+connected()
+unread()
+G.logout
 puts 'Exiting...'.yellow
