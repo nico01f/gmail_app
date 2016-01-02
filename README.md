@@ -8,7 +8,7 @@
 
 
 #Account file
-Create account file, include credetentials to gmail account:
+Create account file, include credentials to gmail account:
 
 `touch account.yml`
 
