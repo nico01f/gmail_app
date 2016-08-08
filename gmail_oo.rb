@@ -5,14 +5,14 @@ require 'yaml'
 class Check_email
 	ACCOUNT = YAML.load_file('account.yml') unless defined? ACCOUNT
 	G = Gmail.connect(ACCOUNT['email'], ACCOUNT['password'])
-	
+
 	def info
 		puts "Account: #{ACCOUNT['email']}"
 		password_hided = '*' * ACCOUNT['password'].length
 		puts "Password: #{password_hided}"
 		puts '==============='
-	end 
-	
+	end
+
 	def unread
 		n = G.inbox.count(:unread)
 	end
